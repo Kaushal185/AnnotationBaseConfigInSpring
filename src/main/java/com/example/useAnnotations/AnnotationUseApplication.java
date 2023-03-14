@@ -22,6 +22,18 @@ public class AnnotationUseApplication {
 		ib.assist();
 		doc.assist();
 
+		// use of @Bean
+
+		ApplicationContext context1 = new AnnotationConfigApplicationContext(BeanConfig2.class);
+		Staff newDoc = context1.getBean(Doctor.class);
+		Staff newIB = context1.getBean(InvestmentBanker.class);
+		Staff newMan = context1.getBean(Manager.class);
+
+		newDoc.assist();
+		newIB.assist();
+		newMan.assist();
+
+
 	}
 
 }

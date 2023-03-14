@@ -1,6 +1,7 @@
 package com.example.useAnnotations;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,5 +12,13 @@ public class BeanConfig {
     // ComponentScan annotation scan our classes from defined packages
     // for this we need to create our object of ApplicationContext using new AnnotationConfigApplicationContext()
 
+
+
+    // Here instead of defining Manger class with @Component annotation we can use Bean annotation here only
+    // create method which return object of given class and add @Bean annotation over method
+    @Bean
+    public Manager manager(){
+        return new Manager();
+    }
 
 }
