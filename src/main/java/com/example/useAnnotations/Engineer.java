@@ -4,11 +4,12 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Manager implements Staff{
+@Scope(scopeName = "prototype")
+public class Engineer implements Staff{
     private String qualification;
     @Override
     public void assist(){
-        System.out.println("managing");
+        System.out.println("problem sovling");
     }
     @Override
     public String toString(){
@@ -22,5 +23,4 @@ public class Manager implements Staff{
     public void setQualification(String qualification) {
         this.qualification = qualification;
     }
-
 }

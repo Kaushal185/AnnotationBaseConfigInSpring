@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Component
-@Scope(scopeName = "prototype")
 public class Doctor implements Staff {
     private String qualification;
     public void assist(){
