@@ -33,6 +33,34 @@ public class AnnotationUseApplication {
 		newIB.assist();
 		newMan.assist();
 
+		//Bean structure is like every time we create new object of doctor,manager of ib we it will return same object
+		//because of singleton design pattern
+		/*
+			for getting different object every time we need to define @Scope annotation at that class
+		 */
+		Manager Man1 = context1.getBean(Manager.class);
+		Manager Man2 = context1.getBean(Manager.class);
+		Manager Man3 = context1.getBean(Manager.class);
+
+		Man2.setQualification("MBA");
+		Man3.setQualification("BBA");
+		System.out.println(Man1);
+		System.out.println(Man2);
+		System.out.println(Man3);
+
+		Doctor doc1 = context.getBean(Doctor.class);
+		Doctor doc2 = context.getBean(Doctor.class);
+		Doctor doc3 = context.getBean(Doctor.class);
+		doc2.setQualification("BAMS");
+		doc3.setQualification("MBBS");
+		System.out.println(doc1);
+		System.out.println(doc2);
+		System.out.println(doc3);
+
+
+
+
+
 
 	}
 

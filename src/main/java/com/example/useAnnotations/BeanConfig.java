@@ -13,12 +13,8 @@ public class BeanConfig {
     // for this we need to create our object of ApplicationContext using new AnnotationConfigApplicationContext()
 
 
-
     // Here instead of defining Manger class with @Component annotation we can use Bean annotation here only
     // create method which return object of given class and add @Bean annotation over method
-    @Bean
-    public Manager manager(){
-        return new Manager();
-    }
+
 
 }
