@@ -15,7 +15,7 @@ public class AnnotationUseApplication {
 //		ib.assist();
 
 		// her we are using Configuration and ComponentScan annotations instead for using xml file.
-		ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
+		ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig1.class);
 		Staff ib = context.getBean(InvestmentBanker.class);
 
 		Staff doc = context.getBean(Doctor.class);
@@ -32,6 +32,31 @@ public class AnnotationUseApplication {
 		newDoc.assist();
 		newIB.assist();
 		newMan.assist();
+
+		//Bean structure is like every time we create new object of doctor,manager of ib we it will return same object
+		//because of singleton design pattern
+		/*
+			for getting different object every time we need to define @Scope annotation at that class
+		 */
+		Manager Man1 = context.getBean(Manager.class);
+		Manager Man2 = context.getBean(Manager.class);
+		Manager Man3 = context.getBean(Manager.class);
+
+		Man2.setQualification("MBA");
+		Man3.setQualification("BBA");
+		System.out.println(Man1);
+		System.out.println(Man2);
+		System.out.println(Man3);
+
+
+		/*
+		Here we are not used singleton pattern every new object created is different.
+		Engineer class contain annotation @Scope so spring always return different object.
+		 */
+		Engineer eng = context.getBean(Engineer.class);
+		Engineer eng2 = context.getBean(Engineer.class);
+		eng.setQualification("btech");
+		System.out.println(eng +" "+eng2);
 
 
 	}

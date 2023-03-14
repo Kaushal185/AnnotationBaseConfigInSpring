@@ -1,7 +1,6 @@
 package com.example.useAnnotations;
 
 import org.springframework.stereotype.Component;
-
 @Component
 public class InvestmentBanker implements Staff {
     @Override
